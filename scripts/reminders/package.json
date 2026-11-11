@@ -1,0 +1,13 @@
+{
+  "name": "ca-inter-planner-reminders",
+  "private": true,
+  "version": "1.0.0",
+  "description": "GitHub Actions sender for CA Inter planner slot reminders",
+  "main": "index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.0.0"
+  }
+}

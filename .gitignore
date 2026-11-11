@@ -1,0 +1,6 @@
+node_modules/
+scripts/reminders/node_modules/
+.firebase/
+firebase-debug.log
+*.service-account.json
+service-account*.json
