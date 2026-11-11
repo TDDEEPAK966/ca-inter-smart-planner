@@ -286,12 +286,12 @@ async function loadReminderSettings(user){
 async function loadFirebaseFor(user){
   firebaseLoading=true;setStatus('Loading Firebase data…');
   try{
-    const ref=firebaseDb.ref(PLANNER_DATA_PATH.replace('{uid}',user.uid)),snapshot=await ref.once('value');
-    if(snapshot.exists())state=normaliseState(snapshot.val());
+    const ref=firebaseDb.ref(PLANNER_DATA_PATH.replace('{uid}',user.uid)),dataSnapshot=await ref.once('value');
+    if(dataSnapshot.exists())state=normaliseState(dataSnapshot.val());
     saveLocal();firebaseLoading=false;renderAll();
-    if(!snapshot.exists())await ref.set(snapshot());
+    if(!dataSnapshot.exists())await ref.set(snapshot());
     await loadReminderSettings(user);
-    if(!snapshot.exists())setStatus('Local planner data copied to Firebase')
+    if(!dataSnapshot.exists())setStatus('Local planner data copied to Firebase')
   }catch(error){firebaseLoading=false;setStatus('Local data kept — Firebase load failed: '+error.message,true)}
 }
 async function signInWithGoogle(){
